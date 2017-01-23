@@ -1,0 +1,254 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Fighters</title>
+		<link rel="shortcut icon" href="icon.png"/>
+		<script src="jquery-1.10.2.min.js"></script>
+		<style>
+			*{
+				z-index:5;
+				position:relative;
+			}
+			body{
+
+				margin:0 auto;
+			}
+			#fighter1{
+				background: url('fighter_one.png') -39px -4px;
+				position: absolute;
+				bottom: 0;
+				width: 33px;
+				height: 47px;
+				left: 500;
+			}
+			#fighter2{
+				background: url('fighter_two.png') -112px -13px;
+				position: absolute;
+				bottom: 0;
+				width: 88px;
+				height: 75px;
+				left: 538;
+			}
+			#cont{
+				width: 969px;
+				height: 300;
+				border: 3px solid #000059;
+				display: flex;
+				margin:0 auto;
+				position:inline;
+				top:30;
+				left:0;
+				z-index:1;
+				border-bottom-width: 15px;
+				border-bottom-color: #000011;
+			}
+			#pp2{
+				float:right;
+				background-color:#FF0000;
+				height:100%;
+				width:100%;
+			}
+			#pp1{
+				background-color:#0000ff;
+				width:100%;
+				height:100%;
+			}
+			#p2{
+				float:right;
+			}
+			#p1,#p2{
+				background-color:#000000;
+				width:50%;
+				height:70px;
+				border-radius:30px;
+				overflow: hidden;
+			}
+			#hh2{
+				position: absolute;
+				float: left;
+				left: 0;
+				top: 42;
+			}
+			#hh{
+				position: absolute;
+				float:right;
+				right:0;
+				top: 42;
+			}
+			#black h1{
+				text-align:center;
+				margin:0 auto;
+			}
+			#black{
+				z-index:9;
+				display:none;
+				opacity:0.8;
+				width:100%;
+				height:100%;
+				position:fixed;
+				top:0;
+				left:0;
+				color:#00ffff;
+				font-size:200%;
+				background-color: #000000;
+				text-align:center;
+			}
+			#ins{
+				text-align:center;
+			}
+
+		</style>
+		<script>
+			function detectmob() {
+				 if( navigator.userAgent.match(/Android/i)
+				 || navigator.userAgent.match(/webOS/i)
+				 || navigator.userAgent.match(/iPhone/i)
+				 || navigator.userAgent.match(/iPad/i)
+				 || navigator.userAgent.match(/iPod/i)
+				 || navigator.userAgent.match(/BlackBerry/i)
+				 || navigator.userAgent.match(/Windows Phone/i)
+				 ){
+					return true;
+				  }
+				 else {
+					return false;
+				  }
+				}
+			$(function(){
+				 Mleft = 0;
+				 Mleft2 = 0;
+
+				 if(detectmob()){
+
+				 }
+
+
+				$(document).keydown(function(event){
+					if(parseInt($('#pp2').css('width'))<=10){
+						$('#black h1').html('You Win!!!<br/><span>Click here to play again</span>');
+						$('#black').show();
+						$('#black').click(function(){
+							window.location.reload();
+						});
+						clearInterval(stopPlayer2);
+					}
+
+					var x = event.which;
+					switch(x+''){
+						case '68':// Mleft+20; $('#fighter1').css('left',Mleft)
+						Mleft = Mleft+10;
+						$('#fighter1').css('margin-left',Mleft);
+						;break;
+						case '65'://Mleft = Mleft-20; $('#fighter1').css('left',Mleft)
+						Mleft = Mleft-10;
+						$('#fighter1').css('margin-left',Mleft);
+						;break;
+						case '80':
+						setTimeout(function(){$('#fighter1').css('background',"url('fighter_one.png') -128px 171px");
+						setTimeout(function(){$('#fighter1').css('background',"url('fighter_one.png') -167px 171px")
+						.css('z-index', 6)
+						.css('width',"62px");
+						setTimeout(function(){$('#fighter1').css('background',"url('fighter_one.png') -128px 171px")
+						.css('z-index', 4)
+						.css('width',"33px");
+
+						setTimeout(function(){$('#fighter1').css('background',"url('fighter_one.png') -39px -4px")
+							if(parseInt($('#fighter1').css('margin-left'))>=parseInt($('#fighter2').css('margin-left'))){
+								equal = parseInt($('#fighter1').css('margin-left')) - parseInt($('#fighter2').css('margin-left'));
+							}else{equal =  parseInt($('#fighter2').css('margin-left')) - parseInt($('#fighter1').css('margin-left')) ;}
+							if(equal<30){
+								$('#pp2').css('width',parseInt($('#pp2').css('width'))-10+'px');
+							}
+
+						},80);
+						},80);
+
+						},80);},80)
+						;break;
+
+
+					}
+				  });
+
+				  stopPlayer2 = setInterval(function(){
+					if(parseInt($('#fighter1').css('margin-left'))>=parseInt($('#fighter2').css('margin-left'))){
+								equal = parseInt($('#fighter1').css('margin-left')) - parseInt($('#fighter2').css('margin-left'));
+								x=10;
+							}else{equal =  parseInt($('#fighter2').css('margin-left')) - parseInt($('#fighter1').css('margin-left'));
+								x=-10;
+							}
+							if(equal>29||equal<-29){
+								$('#fighter2').css('margin-left',parseInt($('#fighter2').css('margin-left'))+x+'px');
+							}else{
+
+								setTimeout(function(){$('#fighter2').css('background',"url('fighter_two.png') -112px -185px")
+						.css('z-index', 6)
+								setTimeout(function(){$('#fighter2').css('background',"url('fighter_two.png') -231px -271px").css('width',"70px");
+						setTimeout(function(){$('#fighter2').css('background',"url('fighter_two.png') -120px -271px")
+						.css('width',"88px").css('margin-left',parseInt($('#fighter2').css('margin-left'))-15);
+								setTimeout(function(){$('#fighter2').css('background',"url('fighter_two.png') -231px -271px").css('width',"70px")
+								.css('margin-left',parseInt($('#fighter2').css('margin-left'))+15);
+						setTimeout(function(){$('#fighter2').css('background',"url('fighter_two.png') -112px -185px")
+						.css('width',"88px")
+						.css('z-index', 4);
+
+						setTimeout(function(){$('#fighter2').css('background',"url('fighter_two.png') -112px -13px");
+
+							$('#pp1').css('width',parseInt($('#pp1').css('width'))-30+'px');
+								if(parseInt($('#pp1').css('width'))<=10){
+									$('#black h1').html('You Lose!!!<br/><span>Click here to play again</span>');
+									$('#black').show();
+									$('#black').click(function(){
+										window.location.reload();
+									});
+									clearInterval(stopPlayer2);
+								}
+
+
+						},100);
+						},100);
+						},100);
+						},100);
+
+						},100);},100)
+						;
+
+
+
+
+
+							}
+				  },700);
+
+				  $('#cont').focus();
+			});
+		</script>
+  </head>
+  <body>
+	<div id="cont">
+	<div id="p1">
+		<div id="pp1"></div>
+
+	</div>
+	<div id="p2">
+		<div id="pp2"></div>
+	</div>
+	<br/>
+	<h1 id="hh2">You</h1>
+	<h1 id="hh">Computer</h1>
+		<span id="fighter1"></span>
+		<span id="fighter2"></span>
+		<span id="black">
+			<h1></h1>
+		</span>
+	</div>
+	<br/>
+	<div id="ins">
+		<h2>Instructions:</h2>
+		<p>Press "A" to move left, "D" to move right and "P" to punch the enemy. He will chase you outside the screen</p>
+	</div>
+	<span id="fi1"></span>
+		<span id="fi2"></span>
+    </body>
+    </html>
