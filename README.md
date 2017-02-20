@@ -1,5 +1,6 @@
 # Fighting-browser-game
 An old fighting game I built while learning JS in 2013
+https://oryoffe.github.io/Fighting-browser-game/
 
 # Instructions
 
