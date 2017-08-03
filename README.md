@@ -2,6 +2,8 @@
 An old fighting game I built while learning JS in 2013
 https://oryoffe.github.io/Fighting-browser-game/
 
+Desktop version: https://github.com/orYoffe/fighting-desktop-game
+
 # Instructions
 
   Just open the ```index.html``` file in your browser and fight!
